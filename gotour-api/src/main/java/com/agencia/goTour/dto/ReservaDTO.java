@@ -2,8 +2,6 @@ package com.agencia.goTour.dto;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 public class ReservaDTO {
 
@@ -14,13 +12,16 @@ public class ReservaDTO {
 	private Double valor;	 
 	private String tipoPagamento;
 	
-	@JsonProperty("clientDTO")
-    private ClienteDTO cliDTO;
+	private Long idCliente;
+	private Long idDestino;
+	    
 
-    @JsonProperty("destinationDTO")
-    private DestinoDTO desDTO;
+
+    public ReservaDTO(Long id, String descricaoReserva) {
+        this.id = id;
+        this.descricaoReserva = descricaoReserva;
+    }
     
-	
 	public Long getId() {
 		return id;
 	}
@@ -57,19 +58,17 @@ public class ReservaDTO {
 	public void setTipoPagamento(String tipoPagamento) {
 		this.tipoPagamento = tipoPagamento;
 	}
-	public ClienteDTO getCliDTO() {
-		return cliDTO;
+	public Long getIdCliente() {
+		return idCliente;
 	}
-	public void setCliDTO(ClienteDTO cliDTO) {
-		this.cliDTO = cliDTO;
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
 	}
-	public DestinoDTO getDesDTO() {
-		return desDTO;
+	public Long getIdDestino() {
+		return idDestino;
 	}
-	public void setDesDTO(DestinoDTO desDTO) {
-		this.desDTO = desDTO;
-	}
-	
-	
+	public void setIdDestino(Long idDestino) {
+		this.idDestino = idDestino;
+	}	
 	
 }
