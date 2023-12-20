@@ -3,8 +3,11 @@ package com.agencia.goTour.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,6 +29,7 @@ import jakarta.persistence.Table;
 		@Column(nullable = false, length = 255)
 		private String descricaoReserva;
 
+		
 		@Column(nullable = false)
 		private LocalDate dataIda;
 		
@@ -38,11 +42,13 @@ import jakarta.persistence.Table;
 		@Column(nullable = false)
 		private String tipoPagamento;
 		
-	    @ManyToOne
+		@JsonIgnore
+	    @ManyToOne (fetch = FetchType.EAGER)
 	    @JoinColumn(name = "idCliente")
 	    private Cliente cliente;
 	    
-	    @ManyToOne
+		@JsonIgnore
+	    @ManyToOne(fetch = FetchType.EAGER)
 	    @JoinColumn(name = "idDestino")
 	    private Destino destino;
 			

@@ -2,6 +2,7 @@ package com.agencia.goTour.services;
 
 import java.util.List;
 
+import com.agencia.goTour.dto.ReservaDTO;
 import com.agencia.goTour.model.Reserva;
 
 
@@ -11,10 +12,11 @@ public interface ReservaServices {
 	
 	Reserva buscarReservaporId(Long id);
 	
-	Reserva salvarReserva(Reserva reserva);
+	Reserva salvarReserva(ReservaDTO rDTO);
 	
-	Reserva atualizarReserva(Long id, Reserva reservaAtualizada);
+	Reserva atualizarReserva(Long idReserva, ReservaDTO rDTOAtualizado);
 	
 	void deletarReserva(Long id);
+
 	
 }
